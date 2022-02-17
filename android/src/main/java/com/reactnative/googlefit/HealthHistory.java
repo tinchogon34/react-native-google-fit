@@ -72,9 +72,6 @@ public class HealthHistory {
         DataReadRequest.Builder readRequestBuilder = new DataReadRequest.Builder()
                 .read(this.dataType)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS);
-        if (this.dataType == HealthDataTypes.TYPE_BLOOD_PRESSURE) {
-            readRequestBuilder.bucketByTime(bucketInterval, HelperUtil.processBucketUnit(bucketUnit));
-        }
 
         DataReadRequest readRequest = readRequestBuilder.build();
 
